@@ -1,0 +1,19 @@
+version: '2.2'
+services:
+  postgres-singleton:
+    image: postgres:13.2
+    container_name: postgres-singleton
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=123456
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - local-net
+
+networks:
+  local-net:
+    external: true
