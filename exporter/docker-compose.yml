@@ -4,7 +4,8 @@ services:
     image: quay.io/prometheuscommunity/postgres-exporter
     container_name: postgres-exporter-singleton
     environment:
-      - DATA_SOURCE_NAME="postgresql://root:123456@localhost:5432/postgres?sslmode=disable"
+      #- DATA_SOURCE_NAME=postgresql://root:123456@postgres-singleton:5432/postgres?sslmode=disable
+      - DATA_SOURCE_NAME=postgresql://lotus:lotus@192.168.1.189:5432/chain_monitor?sslmode=disable
     ports:
       - 9187:9187
     networks:
